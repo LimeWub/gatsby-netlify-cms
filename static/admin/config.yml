@@ -56,3 +56,116 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+  
+  - name: "skills"
+    label: "Skills"
+    folder: "src/pages/skill"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: name
+    fields:
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "skill"
+      - label: "Name"
+        name: "name"
+        widget: "string"
+      - label: "Percent"
+        name: "percent"
+        widget: "number"
+        default: 50
+        valueType: int
+        min: 1
+        max: 100    
+
+  - name: "tags"
+    label: "Tags"
+    folder: "src/pages/tag"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: name
+    fields:
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "tag"
+      - label: "Name"
+        name: "name"
+        widget: "string"
+      - label: "(R) Skill"
+        name: "relatedSkill"
+        widget: "relation"
+        collection: "skills"
+        searchFields: ["name"]
+        valueField: "name"
+        displayFields: ["name", "percent"]
+
+  - name: "experience"
+    label: "Experience"
+    folder: "src/pages/experience"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "experience"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Company"
+        name: "company"
+        widget: "string"
+      - label: "Start Date"
+        name: "startDate"
+        widget: "date"
+      - label: "End Date"
+        name: "endDate"
+        widget: "date"
+      - label: "tl;dr"
+        name: "tldr"
+        widget: "markdown"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+      - label: "Tags"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"
+        multiple: true
+
+
+  - name: "education"
+    label: "Education"
+    folder: "src/pages/education"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "education"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "School"
+        name: "school"
+        widget: "string"
+      - label: "Start Date"
+        name: "startDate"
+        widget: "date"
+      - label: "End Date"
+        name: "endDate"
+        widget: "date"
+      - label: "tl;dr"
+        name: "tldr"
+        widget: "markdown"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+      - label: "Tags"
+        name: "tags"
+        widget: "relation"
+        collection: "tags"
+        multiple: true
