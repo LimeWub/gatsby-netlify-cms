@@ -4,39 +4,31 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const ResumePageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
     <section className="section section--gradient">
       <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
+        {title}
+        <PageContent className="content" content={content} />
       </div>
     </section>
   )
 }
 
-AboutPageTemplate.propTypes = {
+ResumePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
 
-const AboutPage = ({ data }) => {
+const ResumePage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <ResumePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
@@ -45,14 +37,14 @@ const AboutPage = ({ data }) => {
   )
 }
 
-AboutPage.propTypes = {
+ResumePage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default ResumePage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const ResumePageQuery = graphql`
+  query ResumePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {

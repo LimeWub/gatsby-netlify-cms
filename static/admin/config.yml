@@ -6,6 +6,73 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "index"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page" }
+          - { label: Title, name: title, widget: string }
+          - { label: "What's my name?", name: name, widget: string }
+          - { label: "What it do?", name: itdo, widget: string }
+          - { label: "Pitch yo'selfy!", name: pitch, widget: markdown }
+          - { label: "Let's get social!", name: social, widget: list, 
+              fields: [
+                {label: "#", name: "id", widget: "string"},
+                {label: "Name", name: "name", widget: "string"},
+                {label: "URL", name: "url", widget: "string"}
+              ]
+            }
+
+      - file: "src/pages/resume/index.md"
+        label: "Resume"
+        name: "resume"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "resume-page" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Personal Statement", name: "personalStatement", widget: "markdown" }
+          
+          - { label: Skills, name: skills, widget: object,
+              fields: [
+                { label: "", name: skills, widget: list, 
+                  fields: [
+                    { label: "Name", name: "name", widget: "string"},
+                    { label: "LVL", name: "level", widget: "number", default: 50, valueType: int, min: 1, max: 100 },
+                    { label: "Keywords", name: "keywords", widget: "list",
+                      fields: [
+                        {label: "#", name: "id", widget: "string"}, 
+                        {label: "Name", name: "name", widget: "string"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+
+          - { label: Experience, name: experience, widget: object,
+              fields: [
+                { label: "", name: experience, widget: list, 
+                  fields: [
+                    { label: "Title", name: "title", widget: "string"},
+                    { label: "Type", name: "type", widget: "select", options: ["job", "school"]},
+                    { label: "Establishment", name: "establishment", widget: "string"},
+                    { label: "Start Date", name: "startDate", widget: "date"},
+                    { label: "End Date", name: "endDate", widget: "date"},
+                    { label: "TL;DR", name: "tldr", widget: "markdown"},
+                    { label: "Description", name: "description", widget: "markdown"},
+                    { label: "Keywords", name: "keywords", widget: "list",
+                      fields: [
+                        {label: "#", name: "id", widget: "string"}, 
+                        {label: "Name", name: "name", widget: "string"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
@@ -18,154 +85,3 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-  
-  - name: "skills"
-    label: "Skills"
-    folder: "src/pages/skill"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    identifier_field: name
-    fields:
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "skill"
-      - label: "Name"
-        name: "name"
-        widget: "string"
-      - label: "Percent"
-        name: "percent"
-        widget: "number"
-        default: 50
-        valueType: int
-        min: 1
-        max: 100    
-
-  - name: "tags"
-    label: "Tags"
-    folder: "src/pages/tag"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    identifier_field: name
-    fields:
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "tag"
-      - label: "Name"
-        name: "name"
-        widget: "string"
-      - label: "(R) Skill"
-        name: "relatedSkill"
-        widget: "relation"
-        collection: "skills"
-        searchFields: ["name"]
-        valueField: "name"
-        displayFields: ["name", "percent"]
-
-  - name: "experience"
-    label: "Experience"
-    folder: "src/pages/experience"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "experience"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Company"
-        name: "company"
-        widget: "string"
-      - label: "Start Date"
-        name: "startDate"
-        widget: "date"
-      - label: "End Date"
-        name: "endDate"
-        widget: "date"
-      - label: "tl;dr"
-        name: "tldr"
-        widget: "markdown"
-      - label: "Description"
-        name: "description"
-        widget: "markdown"
-      - label: "Tags"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"
-        multiple: true
-
-
-  - name: "education"
-    label: "Education"
-    folder: "src/pages/education"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "education"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "School"
-        name: "school"
-        widget: "string"
-      - label: "Start Date"
-        name: "startDate"
-        widget: "date"
-      - label: "End Date"
-        name: "endDate"
-        widget: "date"
-      - label: "tl;dr"
-        name: "tldr"
-        widget: "markdown"
-      - label: "Description"
-        name: "description"
-        widget: "markdown"
-      - label: "Tags"
-        name: "tags"
-        widget: "relation"
-        collection: "tags"
-        multiple: true
