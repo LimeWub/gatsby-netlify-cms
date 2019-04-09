@@ -1,0 +1,8 @@
+@import "./_variables";
+@import "./_mixins";
+
+body {
+  background: $black;
+  color: $white;
+  font-family: $font-stack;
+}
