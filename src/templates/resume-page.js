@@ -4,13 +4,14 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const ResumePageTemplate = ({ title, content, contentComponent }) => {
+export const ResumePageTemplate = ({ title, content, contentComponent, personalStatement }) => {
   const PageContent = contentComponent || Content
 
   return (
     <section className="section section--gradient">
       <div className="container">
         {title}
+        {personalStatement}
         <PageContent className="content" content={content} />
       </div>
     </section>
@@ -19,6 +20,7 @@ export const ResumePageTemplate = ({ title, content, contentComponent }) => {
 
 ResumePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  personalStatement: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
@@ -31,6 +33,7 @@ const ResumePage = ({ data }) => {
       <ResumePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        personalStatement={post.frontmatter.personalStatement}
         content={post.html}
       />
     </Layout>
@@ -49,6 +52,33 @@ export const ResumePageQuery = graphql`
       html
       frontmatter {
         title
+        personalStatement
+        skills {
+          skills {
+            name
+            level
+            keywords {
+              id
+              name
+            }
+          }
+          
+        }
+        experience {
+          experience {
+            title
+            type
+            establishment
+            startDate
+            endDate
+            tldr
+            description
+            keywords {
+              id
+              name
+            }
+          }
+        }
       }
     }
   }

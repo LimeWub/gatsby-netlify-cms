@@ -3,16 +3,13 @@
 /* --------------------------------------------------------------------------------------------*/
 
 html {
-    font-size: 2vw;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: $font-stack;
   
     @include breakpoint(md) {
-      font-size: 2vw;
-    }
-    @include breakpoint(lg) {
-      font-size: 2vw;
+      font-size: 16px;
     }
   }
   

@@ -59,7 +59,7 @@ collections:
                     { label: "Type", name: "type", widget: "select", options: ["job", "school"]},
                     { label: "Establishment", name: "establishment", widget: "string"},
                     { label: "Start Date", name: "startDate", widget: "date"},
-                    { label: "End Date", name: "endDate", widget: "date"},
+                    { label: "End Date", name: "endDate", widget: "date", required: false},
                     { label: "TL;DR", name: "tldr", widget: "markdown"},
                     { label: "Description", name: "description", widget: "markdown"},
                     { label: "Keywords", name: "keywords", widget: "list",
