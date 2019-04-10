@@ -3,14 +3,14 @@ templateKey: resume-page
 title: Resume
 personalStatement: hello world
 skills:
-  skills:
+  node:
     - keywords:
         - id: tag1
           name: ~Tag 1~
       level: 99
       name: Skill
 experience:
-  experience:
+  node:
     - description: description content what up
       endDate: 2019-05-10T23:00:00.000Z
       establishment: Company

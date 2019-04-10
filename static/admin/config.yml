@@ -36,7 +36,7 @@ collections:
           
           - { label: Skills, name: skills, widget: object,
               fields: [
-                { label: "", name: skills, widget: list, 
+                { label: "Node", name: node, widget: list, 
                   fields: [
                     { label: "Name", name: "name", widget: "string"},
                     { label: "LVL", name: "level", widget: "number", default: 50, valueType: int, min: 1, max: 100 },
@@ -53,7 +53,7 @@ collections:
 
           - { label: Experience, name: experience, widget: object,
               fields: [
-                { label: "", name: experience, widget: list, 
+                { label: "Node", name: node, widget: list, 
                   fields: [
                     { label: "Title", name: "title", widget: "string"},
                     { label: "Type", name: "type", widget: "select", options: ["job", "school"]},
