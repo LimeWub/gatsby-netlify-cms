@@ -5,16 +5,32 @@ import Layout from '../components/Layout'
 import PersonalStatement from '../components/PersonalStatement'
 import Skills from '../components/Skills'
 import Experience from '../components/Experience'
+import KeywordsContextProvider from "../contexts/KeywordsContext.js"
+
+export const ResumePageTemplate = ({
+  title,
+  personalStatement
+}) => (
+  <KeywordsContextProvider>
+    <PersonalStatement statement={personalStatement} />
+    <Skills />
+    <Experience />
+  </KeywordsContextProvider>
+)
+
+ResumePageTemplate.propTypes = {
+  title: PropTypes.string,
+  personalStatement: PropTypes.string
+}
 
 const ResumePage = ({ data }) => {
-  const { markdownRemark: post } = data
-  const fm = post.frontmatter;
-
+  const { frontmatter } = data.markdownRemark
   return (
     <Layout>
-      <PersonalStatement />
-      <Skills />
-      <Experience />
+      <ResumePageTemplate
+        title={frontmatter.title}
+        personalStatement={frontmatter.personalStatement}
+      />
     </Layout>
   )
 }

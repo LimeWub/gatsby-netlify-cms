@@ -7,8 +7,9 @@ class PersonalStatement extends React.Component {
 
         return (
             <section>
-                Hello world
-    </section>
+                123
+                {this.props.PersonalStatement}
+            </section>
         )
     }
 }
