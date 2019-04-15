@@ -25,23 +25,24 @@ body {
   
   .text-container {
     width: 100%;
-    max-width: 100vw;
-    @include breakpoint(sm) {
-      max-width: 75vw;
-    }
-  
-    @include breakpoint(lg) {
-      max-width: 50vw;
-    }
+    max-width: $text-container-max-width;
   }
   
   /* Spacing */
   .spacing {
     padding: $vertical-spacing $horizontal-spacing;
+
+    @include breakpoint(md) {
+      padding: $vertical-spacing-md $horizontal-spacing-md;
+    }
   }
   
   .item-spacing {
     padding: $vertical-spacing * 0.5 $horizontal-spacing * 0.5;
+
+    @include breakpoint(md) {
+      padding: $vertical-spacing-md * 0.5 $horizontal-spacing-md * 0.5;
+    }
   }
   
   /* Section */

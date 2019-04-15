@@ -3,10 +3,6 @@
 @import "./typography/typography";
 @import "./layout/layout";
 @import "./theme/theme";
+@import "./theme/highlight";
+@import "./ui/anchors";
 @import "./ui/buttons";
-
-body {
-  background: $black;
-  color: $white;
-  font-family: $font-stack;
-}

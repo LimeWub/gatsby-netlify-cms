@@ -13,118 +13,182 @@ html {
     }
   }
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0 0 0.7em 0;
-    font-family: $font-stack-sp;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    margin-bottom: .5em;
     word-wrap: break-word;
     font-weight: bold;
   }
   
-  h1,
-  .h1 {
-    font-size: 3.3rem;
-    line-height: 1;
-  }
-  
-  h2,
-  .h2 {
-    font-size: 2.5rem;
-    line-height: 1.1;
-  }
-  h3,
-  .h3 {
-    font-size: 1.8rem;
-    line-height: 1.1;
-  }
-  
-  h4,
-  .h4 {
-    margin-bottom: 1.6rem;
-    font-size: 1.5rem;
+  h1, .h1 {
+    font-size: 36px;
     line-height: 1.25;
+
+    @include breakpoint(xs) {
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    @include breakpoint(md) {
+      font-size: 60px;
+    }
   }
   
-  h5,
-  .h5 {
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
+  h2, .h2 {
+    font-size: 30px;
     line-height: 1.25;
+
+    @include breakpoint(xs) {
+      font-size: 36px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 48px;
+      line-height: 1;
+    }
+  }
+  h3, .h3 {
+    font-size: 24px;
+    line-height: 1.25;
+
+    @include breakpoint(xs) {
+      font-size: 30px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 36px;
+    }
   }
   
-  h6,
-  .h6 {
-    font-weight: 500;
-    margin-bottom: 1.25rem;
+  h4, .h4 {
+    font-size: 20px;
+    line-height: 1.25;
+
+    @include breakpoint(xs) {
+      font-size: 24px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 30px;
+    }
+  }
+  
+  h5, .h5 {
+    font-size: 18px;
+    line-height: 1.25;
+
+    @include breakpoint(xs) {
+      font-size: 20px;
+    }
+
+    @include breakpoint(md) {
+      font-size: 24px;
+    }
+  }
+  
+  h6, .h6 {
     font-size: 1rem;
+    line-height: 1.5;
+
+    @include breakpoint(xs) {
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    @include breakpoint(md) {
+      font-size: 20px;
+    }
   }
   
-  p,
-  .p {
-    margin: 0 0 1.5rem 0;
+  p, .p {
+    margin: 0;
+    margin-bottom: .75em;
     font-size: 1rem;
+    font-weight: normal;
   }
   
-  li,
-  .li,
-  label {
-    margin: 0 0 0.8rem 0;
+  li, label {
+    margin: 0;
+    margin-bottom: .5em;
+  }
+
+  .ul-horizontal {
+    display: block;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      clear: both;
+    }
+
+    li {
+      float: left;
+
+      & + li {
+        margin-left: $column-spacing;
+      }
+    }
+  }
+
+  .ul-styled {
+    --color1: var(--hl3-color, var(--text-color, #{$black}));
+    li {
+      padding-left: $column-spacing*1.5;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: var(--color1);
+        position: absolute;
+        top: .5em;
+        left: 0;
+        border-radius: 50%;
+      }
+    }
   }
   
-  ul,
-  ol {
+  ul, ol {
     padding: 0;
     list-style: none;
   }
-  
-  /*
-  .text-muted		 {opacity: 0.6;}
-  .text-primary	 {color: $state-color-primary;}
-  .text-success	 {color: $state-color-success;}
-  .text-info		 {color: $state-color-info;}
-  .text-warning	 {color: $state-color-warning;}
-  .text-danger	 {color: $state-color-danger;}
-  */
   
   a {
     text-decoration: none;
   }
   
-  strong,
-  b {
-    font-weight: normal;
-  }
-  
-  sub,
-  sup {
-    font-size: 50%;
+  sub, sup {
+    font-size: .5em;
   }
   
   sup {
-    top: -1rem;
+    top: -.5em;
   }
   
   /* -----------------------------*/
   /* TYPE */
   
-  .date,
-  .read {
+  .date, .read {
     font-weight: 500;
   }
   
   /* -----------------------------*/
   /* STYLE */
-  
+  .text-playful {
+    font-family: $font-stack-sp;
+  }
+
   .text-uppercase {
     text-transform: uppercase;
   }
   
   .text-nocase {
     text-transform: none;
+  }
+
+  .text-space {
+    letter-spacing: .05em;
   }
   
   /* -----------------------------*/

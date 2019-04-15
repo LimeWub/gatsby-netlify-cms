@@ -1,52 +1,48 @@
 //==========================================================================================
-// Themes
-// Main colour themes used throughout the blocks of the website
+// Highlight
+// 
 //==========================================================================================
-.theme {
-    background: var(--bg-color, #{$white});
-    color: var(--text-color, #{$black});
-    fill: var(--fill-color, #{$black});
-}
-  
 $colour-themes: (
-  "default": (
-    $white,
-    $black
-  ),
   "grey": (
     $grey-1,
-    $black
+    $grey-2,
+    $grey-3
   ),
   "green": (
-    $white,
+    $green-1,
+    $green-2,
     $green-3
   ),
   "yellow": (
-    $white,
+    $yellow-1,
+    $yellow-2,
     $yellow-3
   ),
   "red": (
-    $white,
+    $red-1,
+    $red-2,
     $red-3
   ),
   "blue": (
-    $white,
+    $blue-1,
+    $blue-2,
     $blue-3
-  ),
+  )
 );
-
+  
 // LOOP EACH -
 @each $theme-name, $theme-colors in $colour-themes {
   // Set some local variables for clarity -
   // Background color
-  $themeBG: nth($theme-colors, 1);
-  $themeText: nth($theme-colors, 2);
+  $hightlight1: nth($theme-colors, 1);
+  $hightlight2: nth($theme-colors, 2);
+  $hightlight3: nth($theme-colors, 2);
 
   // Generate theme rules
-  .theme-#{$theme-name} {
+  .highlight-#{$theme-name} {
     // Set base theme properties
-    --bg-color: #{$themeBG};
-    --text-color: #{$themeText};
-    --fill-color: #{$themeText};
+    --hl1-color: #{$hightlight1};
+    --hl2-color: #{$hightlight2};
+    --hl3-color: #{$hightlight3};
   }
 }

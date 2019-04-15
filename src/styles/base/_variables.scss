@@ -17,16 +17,16 @@ $green-1: #edf2d7;
 $green-2: #C6d7BC;
 $green-3: #a4c4a8;
 
-$yellow-1: #fff696;
+$yellow-1: #fbf5af;
 $yellow-2: #FBE647;
 $yellow-3: #efca45;
 
-$red-1: #ef9d88;
+$red-1: #f3b1a1;
 $red-2: #e25353;
 $red-3: #c92432;
 
-$blue-1: #4c9dd3;
-$blue-2: #4775ad;
+$blue-1: #b5d1e3;
+$blue-2: #6b87c0;
 $blue-3: #3c4f76;
 
 
@@ -53,9 +53,16 @@ $lg: 1200px; // desktop
 $mx: 1681px; // large desktop
 
 /* SPACING */
-$container-max-width: 1200px;
+$container-max-width: $lg;
+$text-container-max-width: 35em;
 
-$vertical-spacing: 8vh;
-$horizontal-spacing: 5vw;
+$vertical-spacing: 20px;
+$vertical-spacing-md: 40px;
+
+$horizontal-spacing: 20px;
+$horizontal-spacing-md: 40px;
+
 $column-spacing: 10px;
-$internal-vertical-spacing: 2rem;
+
+$internal-vertical-spacing: 15px;
+$internal-vertical-spacing-md: 30px;

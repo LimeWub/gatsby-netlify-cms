@@ -1,0 +1,79 @@
+//==========================================================================================
+//
+//  Buttons
+//
+//==========================================================================================
+//==========================================================================================
+//  Component Variables
+//==========================================================================================
+
+//==========================================================================================
+//  Base Styles
+//==========================================================================================
+a { // Reset
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  color: inherit;
+  padding: 0;
+  border: none;
+  margin: 0;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.a {
+  --color1: var(--text-color, #{$black});
+  --color2: var(--hl3-color, var(--text-color, #{$black}));
+  color: var(--color1);
+  position: relative;
+  line-height: 100%;
+  text-decoration: none !important;
+  vertical-align: baseline;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+
+//==========================================================================================
+//  Modifiers
+//==========================================================================================
+.a--underline {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 4px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--color2);
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &::after{
+      opacity: 1;
+    }
+  }
+}
+
+.a--playful {
+  font-family: $font-stack-sp;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.a--full {
+  width: 100%;
+}

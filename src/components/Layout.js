@@ -8,7 +8,7 @@ import useSiteMetadata from './SiteMetadata'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <div className="theme theme-default">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
